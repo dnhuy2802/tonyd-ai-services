@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    # command: sh -c "python main.py"
+    ports:
+      - "${PUBLIC_PORT}:${PORT}"
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    restart: unless-stopped
