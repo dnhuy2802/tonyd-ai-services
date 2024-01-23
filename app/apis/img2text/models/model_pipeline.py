@@ -2,8 +2,8 @@ from transformers import ViltProcessor, ViltForQuestionAnswering
 from PIL import Image
 from os import environ as env
 
-processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa", cache_dir="/cache")
-model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa", cache_dir="/cache")
+processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
+model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 
 def model_pipeline(text:str, image: Image):
     # prepare inputs
