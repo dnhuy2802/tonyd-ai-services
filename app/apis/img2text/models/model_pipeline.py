@@ -1,13 +1,9 @@
 from transformers import ViltProcessor, ViltForQuestionAnswering    
 from PIL import Image
+from os import environ as env
 
-# prepare image + question
-# url = "http://images.cocodataset.org/val2017/000000039769.jpg"
-# image = Image.open(requests.get(url, stream=True).raw)
-# text = "How many cats are there?"
-
-processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
-model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
+processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa", cache_dir="/cache")
+model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa", cache_dir="/cache")
 
 def model_pipeline(text:str, image: Image):
     # prepare inputs
